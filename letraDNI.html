@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>validar ISBN</h1>
+
+    <label>Numeros</label>
+
+    <input type="text" id="isbn" />
+
+    <button type="button" onclick="validarIsbn()">
+
+        Mostrar</button>
+
+    <h1 id="resultado"></h1>
+
+
+
+
+
+    <!-- <h1>Letra DNI</h1>
+
+    <label>Numeros</label>
+
+    <input type="text" id="dni" />
+
+    <button type="button" onclick="letraDni()">
+
+        Mostrar</button>
+
+    <h1 id="resultado"></h1>-->
+
+    <script>
+        function validarIsbn() {
+            //8441513929
+            var caja = document.getElementById("isbn");
+            var num = caja.value;
+            var suma = 0;
+            for(var i = 0; i < num.length; i++){
+                var caracter = num.charAt(i);
+                var numero = parseInt(caracter);
+                var operacion = numero * (i + 1);
+                suma += operacion;
+            }
+            var resultado = document.getElementById("resultado");
+            if (suma%11 == 0){
+                resultado.innerText = "Correcto"
+
+            }else {
+                resultado.innerText = "Incorrecto"
+            }
+        }
+
+
+
+        /* function letraDni() {
+ 
+             var cadena = "TRWAGMYFPDXBNJZSQVHLCKET";
+ 
+             var caja = document.getElementById("dni");
+ 
+             var num = caja.value;
+ 
+ 
+             if (num == "") {
+ 
+                 caja.style.borderColor = '#981515';
+ 
+             } else {
+ 
+                 caja.style.borderColor = '#15985d';
+ 
+                  var res = (num - (Math.trunc(num / 23) * 23)); 
+ 
+                // var res = parseInt(num % 23); //preguntar por el porcentaje en clase 
+ 
+                 var letra = cadena.charAt(res);
+ 
+                 document.getElementById("resultado").innerText = letra;
+ 
+                 console.log(letra);
+ 
+             }
+         }*/
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Fecha</h1>
+    <label>Día</label>
+    <input type="text" id="numero1"><br>
+    <label>Mes</label>
+    <input type="text" id="numero2"><br>
+    <label>Año</label>
+    <input type="text" id="numero3"><br>
+    <button type="button" onclick="diaSemana()">Result</button><br>
+
+    <h2 id="resultado"></h2>
+</body>
+<script>
+    function diaSemana() {
+        var caja1 = document.getElementById("numero1");
+        var caja2 = document.getElementById("numero2");
+        var caja3 = document.getElementById("numero3");
+
+        var num1 = parseInt(caja1.value);
+        var num2 = parseInt(caja2.value);
+        var num3 = parseInt(caja3.value);
+
+        if (num2 == 1) {
+            var newnum1 = 13;
+            var restanio = Math.trunc(num3 - 1);
+            var newmes1 = Math.trunc(((newnum1 + 1) * 3) / 5);
+            var anio1 = Math.trunc(restanio / 4);
+            var anio2 = Math.trunc(restanio / 100);
+            var anio3 = Math.trunc(restanio / 400);
+            var paso5 = Math.trunc(num1 + (newnum1 * 2) + restanio + newmes1 + anio1 - anio2 + anio3 + 2);
+            var paso6 = Math.trunc(paso5 / 7);
+            var paso7 = Math.trunc(paso5 - (paso6 * 7));
+            array = ["Sábado", "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "viernes"];
+
+            document.getElementById("resultado").innerHTML = array[paso7];
+           
+            
+
+        } else if (num2 == 2) {
+            var newnum2 = 14;
+            var restanio = Math.trunc(num3 - 1);
+            var newmes2 = Math.trunc(((newnum2 + 1) * 3) / 5);
+            var anio1 = Math.trunc(restanio / 4);
+            var anio2 = Math.trunc(restanio / 100);
+            var anio3 = Math.trunc(restanio / 400);
+            var paso5 = Math.trunc(num1 + (newnum2 * 2) + restanio + newmes2 + anio1 - anio2 + anio3 + 2);
+            var paso6 = Math.trunc(paso5 / 7);
+            var paso7 = Math.trunc(paso5 - (paso6 * 7));
+            array = ["Sábado", "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "viernes"];
+
+            document.getElementById("resultado").innerHTML = array[paso7];
+        } else {
+
+            var mes = Math.trunc(((num2 + 1) * 3) / 5);
+            var anio1 = Math.trunc(num3 / 4);
+            var anio2 = Math.trunc(num3 / 100);
+            var anio3 = Math.trunc(num3 / 400);
+
+            var paso5 = Math.trunc(num1 + (num2 * 2) + num3 + mes + anio1 - anio2 + anio3 + 2);
+
+            var paso6 = Math.trunc(paso5 / 7);
+
+            var paso7 = Math.trunc(paso5 - (paso6 * 7));
+
+
+
+            array = ["Sábado", "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "viernes"];
+
+            document.getElementById("resultado").innerHTML = array[paso7];
+        }
+    }
+</script>
+
+</html>
